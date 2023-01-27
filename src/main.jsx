@@ -2,11 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import {createStore} from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import rootReducer from './reducers'
+import loggedSlice from './reducers/isLogged'
+import counterSlice from './reducers/counter'
 
-const store = createStore(rootReducer)
+const store = configureStore({
+  reducer:{
+    counter: counterSlice,
+    logged: loggedSlice
+  }
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
