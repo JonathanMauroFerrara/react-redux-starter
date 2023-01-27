@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './actions/counter'
-import { login, logout } from './actions/auth'
+import { increment, decrement } from './reducers/counter'
+import { login, logout } from './reducers/isLogged'
 import Button from './components/Button'
 
 

@@ -1,16 +1,17 @@
-const loggedReducer = (state = false, action) => {
-    
-    switch(action.type){
+import { createSlice } from "@reduxjs/toolkit"
 
-        case 'SIGNIN': 
-            return true
-
-        case 'LOGOUT':
-            return false
-            
-        default:
-            return state
+const loggedSlice = createSlice({
+    name: 'userLogin',
+    initialState: false,
+    reducers: {
+        login(state, action){
+            return !state
+        },
+        logout(state, action){
+            return !state
+        }
     }
-}
+})
 
-export default loggedReducer
+export const { login, logout } = loggedSlice.actions
+export default loggedSlice.reducer
