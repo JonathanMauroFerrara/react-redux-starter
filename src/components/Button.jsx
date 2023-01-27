@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({children, handleUserLog}) {
+function Button({children, handleClick}) {
   return (
-    <button className='action__buttons' onClick={handleUserLog}>
+    <button className='action__buttons' onClick={handleClick}>
         {children}
     </button>
   )

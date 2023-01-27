@@ -7,6 +7,7 @@ import Button from './components/Button'
 function App() {
   const counter = useSelector(state => state.counter)
   const logged = useSelector(state => state.logged)
+  const users = useSelector(state => state.users)
 
   const dispatch = useDispatch()
 
@@ -15,10 +16,10 @@ function App() {
       <div className="counter">
         <h1>Counter: {counter}</h1>
         <div className="">
-          <Button handleUserLog={() => dispatch(increment())}>
+          <Button handleClick={() => dispatch(increment())}>
             Increment
           </Button>
-          <Button handleUserLog={() => dispatch(decrement())}>
+          <Button handleClick={() => dispatch(decrement())}>
             Decrement
           </Button>
         </div>
@@ -27,15 +28,22 @@ function App() {
       <div className="login">
         {<h2>{logged ? "You are logged" : "Login please"}</h2>}
         <div className="">
-          <Button handleUserLog={() => dispatch(login())}>
+          <Button handleClick={() => dispatch(login())}>
             Login
           </Button>
-          <Button handleUserLog={() => dispatch(logout())}>
+          <Button handleClick={() => dispatch(logout())}>
             Logout
           </Button>
         </div>
       </div>
 
+      <div className="users">
+        <Button></Button>
+        {users.data.lenght !== 0 &&
+        users.data.map(item =>(
+          console.log(item)
+        ))}
+      </div>
     </div>
   )
 }
